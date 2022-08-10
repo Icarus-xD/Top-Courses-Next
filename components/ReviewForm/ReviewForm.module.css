@@ -1,0 +1,102 @@
+.reviewForm {
+	display: grid;
+	grid-template-columns: [start] auto 1fr auto [end];
+	gap: 20px 30px;
+
+	align-items: center;
+
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.title {
+	justify-self: left;
+}
+
+.rating {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 15px;
+}
+
+.description,
+.submit {
+	grid-column: start / end;
+}
+
+.submit {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 15px;
+}
+
+.message {
+	display: grid;
+
+	margin-top: 15px;
+	padding: 15px;
+
+	border-radius: 15px;
+	grid-template-columns: [start] auto [titleend] 1fr [closestart] 20px [end];
+}
+
+.success {
+	background-color: var(--green-light);
+}
+
+.error {
+	background-color: var(--red-light);
+}
+
+.error .messageClose path {
+	stroke: var(--red);
+}
+
+.messageTitle {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 22px;
+	grid-column: start / titleend;
+}
+
+.messageClose {
+	grid-column: closestart / end;
+}
+
+.messageDescription {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 19px;
+	grid-column: start / closestart;
+}
+
+@media screen and (max-width: 1100px) {
+	.reviewForm {
+		grid-template-columns: [start] 1fr 1fr [end];
+	}
+
+	.title {
+		justify-self: normal;
+	}
+
+	.rating {
+		grid-column: start / end;
+	}
+}
+
+@media screen and (max-width: 860px) {
+	.reviewForm {
+		grid-template-columns: [start] 1fr [end];
+	}
+
+	.name,
+	.title {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.submit {
+		grid-template-columns: auto;
+	}
+}

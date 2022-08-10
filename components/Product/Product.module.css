@@ -1,0 +1,348 @@
+.product {
+	display: grid;
+	grid-template-columns:
+		[start]
+		70px [logoend] 30px
+		[titlestart] calc(50% - 100px) [middle] auto
+		[pricestart] auto [priceend] 40px
+		[creditstart] auto [creditend] 40px
+		[ratingstart] 120px
+		[end];
+
+	margin-top: 20px;
+	padding: 30px;
+}
+
+.logo {
+	grid-column: start / logoend;
+	grid-row: 1 / span 2;
+}
+
+.title,
+.tags {
+	grid-column: titlestart / middle;
+}
+
+.price,
+.priceTitle {
+	grid-column: pricestart / priceend;
+}
+
+.credit,
+.creditTitle {
+	grid-column: creditstart / creditend;
+}
+
+.rating,
+.ratingTitle {
+	grid-column: ratingstart / end;
+}
+
+.hr,
+.description,
+.actions {
+	grid-column: start / end;
+}
+
+.features {
+	grid-column: start / middle;
+}
+
+.advBlock {
+	grid-column: middle / end;
+
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.logo {
+	width: 70px;
+	height: 70px;
+}
+
+.logo img {
+	border-radius: 5px;
+}
+
+.title {
+	align-self: flex-end;
+
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 27px;
+}
+
+.price,
+.credit {
+	align-self: flex-end;
+
+	font-size: 20px;
+	line-height: 27px;
+}
+
+.price {
+	display: flex;
+}
+
+.oldPrice {
+	align-self: center;
+
+	margin-left: 5px;
+}
+
+.month {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 19px;
+}
+
+.rating {
+	align-self: flex-end;
+}
+
+.tags {
+	align-self: flex-start;
+}
+
+.category {
+	margin-top: 5px;
+}
+
+.priceTitle,
+.creditTitle,
+.ratingTitle {
+	align-self: flex-start;
+
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.ratingTitle {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-self: start;
+}
+
+.ratingTitle a {
+	color: var(--primary);
+}
+
+.description {
+	margin-bottom: 15px;
+
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.characteristic {
+	display: grid;
+	align-items: end;
+
+	padding-right: 60px;
+
+	white-space: nowrap;
+
+	font-size: 16px;
+	line-height: 2;
+	grid-template-columns: auto 1fr auto;
+	gap: 10px;
+}
+
+.characteristicName {
+	display: inline-block;
+
+	font-weight: 700;
+}
+
+.characteristicValue {
+	display: inline-block;
+
+	font-weight: 500;
+}
+
+.characteristicDots {
+	margin-bottom: 10px;
+
+	border-bottom: 1px dashed var(--gray);
+}
+
+.advTitle {
+	margin-bottom: 5px;
+
+	font-weight: 700;
+}
+
+.advantages {
+	margin-bottom: 20px;
+	padding-left: 15px;
+
+	border-left: 2px solid #1DC37E;
+}
+
+.disadvantages {
+	padding-left: 15px;
+
+	border-left: 2px solid var(--red);
+}
+
+.button {
+	margin-left: 20px;
+}
+
+.reviews {
+	overflow: hidden;
+
+	padding: 30px;
+}
+
+@media screen and (max-width: 1320px) {
+	.product {
+		grid-template-columns: 70px 30px auto 30px auto 30px 120px;
+		grid-template-areas:
+			'logo . title title title title title'
+			'logo . tags tags tags tags tags'
+			'price price price . credit . rating'
+			'priceTitle priceTitle priceTitle . creditTitle . ratingTitle'
+			'hr1 hr1 hr1 hr1 hr1 hr1 hr1'
+			'description description description description description description description'
+			'features features features features features features features'
+			'advBlock advBlock advBlock advBlock advBlock advBlock advBlock'
+			'hr2 hr2 hr2 hr2 hr2 hr2 hr2'
+			'actions actions actions actions actions actions actions';
+	}
+
+	.logo {
+		grid-area: logo;
+		grid-row: 1 / span 2;
+	}
+
+	.title {
+		grid-area: title;
+	}
+
+	.tags {
+		grid-area: tags;
+
+		margin-bottom: 20px;
+	}
+
+	.price {
+		grid-area: price;
+	}
+
+	.credit {
+		grid-area: credit;
+	}
+
+	.rating {
+		grid-area: rating;
+	}
+
+	.priceTitle {
+		grid-area: priceTitle;
+	}
+
+	.creditTitle {
+		grid-area: creditTitle;
+	}
+
+	.ratingTitle {
+		grid-area: ratingTitle;
+	}
+
+	.hr1 {
+		grid-area: hr1;
+	}
+
+	.description {
+		grid-area: description;
+	}
+
+	.features {
+		grid-area: features;
+
+		margin-bottom: 20px;
+	}
+
+	.advBlock {
+		grid-area: advBlock;
+	}
+
+	.hr2 {
+		grid-area: hr2;
+	}
+
+	.actions {
+		grid-area: actions;
+	}
+}
+
+@media screen and (max-width: 840px) {
+	.product {
+		grid-template-columns: 70px 30px 1fr;
+		grid-template-areas:
+			'logo . title'
+			'logo . tags'
+			'priceTitle priceTitle price'
+			'creditTitle creditTitle credit'
+			'ratingTitle ratingTitle rating'
+			'hr1 hr1 hr1'
+			'description description description'
+			'features features features'
+			'advBlock advBlock advBlock'
+			'hr2 hr2 hr2'
+			'actions actions actions';
+	}
+
+	.price,
+	.credit,
+	.rating {
+		margin-bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 756px) {
+	.product {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.product {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'logo'
+			'title'
+			'tags'
+			'priceTitle'
+			'price'
+			'creditTitle'
+			'credit'
+			'ratingTitle'
+			'rating'
+			'hr1'
+			'description'
+			'features'
+			'advBlock'
+			'hr2'
+			'actions';
+	}
+
+	.product {
+		place-items: center;
+	}
+
+	.logo {
+		grid-row: 1;
+	}
+
+	.price,
+	.credit,
+	.rating {
+		margin-bottom: 10px;
+	}
+
+	.ratingTitle {
+		justify-self: center;
+	}
+}
